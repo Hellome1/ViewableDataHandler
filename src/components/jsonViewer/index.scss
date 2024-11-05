@@ -1,0 +1,42 @@
+.json-viewer {
+  background-color: #eee;
+  height: 400px;
+  overflow: auto;
+
+  .jw-value {
+    color: #ff5e00;
+  }
+  .jw-value.jw-type-num {
+    color: rgb(0, 60, 255);
+  }
+
+  .jw-key {
+    .jw-fold {
+      opacity: 0;
+      transition: .3s;
+    }
+    &:hover {
+      .jw-fold {
+        opacity: 1;
+      }
+    }
+  }
+
+  .jw-object {
+    .jw-tool-box {
+      padding: 0 6px;
+      opacity: 0;
+      transition: .3s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .jw-handle {
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}

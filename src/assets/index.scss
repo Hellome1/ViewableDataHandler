@@ -1,0 +1,14 @@
+.bigCanvas {
+  padding: 10px 20px;
+  .upperArea {
+    height: 65px;
+    padding: 10px 5px;
+    border: 1px dashed black;
+  }
+  .downArea {
+    margin-top: 10px;
+    height: calc(100vh - 140px);
+    border: 1px dashed black;
+    position: relative;
+  }
+}

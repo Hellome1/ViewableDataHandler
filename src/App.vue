@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <!-- 大画布 -->
+    <div class="bigCanvas">
+      <!-- 登记号输入，发送   时间轴 -->
+      <div class="upperArea">
+        <Head />
+      </div>
+      <!-- 医嘱，用药，检查，检验等配置 -->
+      <div class="downArea">
+        <Main />
+      </div>
+
+      <div class="white-space">
+        <WhiteSpace />
+      </div>
+    </div>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import Head from '@/views/head.vue';
+import Main from '@/views/main.vue';
+import WhiteSpace from '@/views/whiteSpace.vue';
+export default {
+  name: 'app',
+  components: {
+    Head,
+    Main,
+    WhiteSpace
   }
+}
+</script>
+
+<style lang="scss">
+.logic-show {
+  position: fixed;
+  left: 20px;
+  top: 30px;
 }
 </style>
