@@ -8,6 +8,8 @@
     <Intro />
 
     <PosterUse />
+
+    <Drawer />
   </div>
 </template>
 
@@ -16,13 +18,15 @@ import Env from '@/components/env/index.vue';
 import CompleteRule from '@/views/completeRule/index.vue';
 import Intro from '@/components/intro/index.vue';
 import PosterUse from '@/components/poster/index.vue';
+import Drawer from './drawer.vue';
 export default {
   name: 'whiteSpace',
   components: {
     Env,
     CompleteRule,
     Intro,
-    PosterUse
+    PosterUse,
+    Drawer
   }
 }
 </script>

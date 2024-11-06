@@ -13,12 +13,11 @@
 <script>
 export default {
   name: 'list',
-  inject: ['setListShowIndex'],
   data() {
     return {
       list: [
-        '完整规则一',
-        '完整规则二'
+        'MES0001',
+        'MES0002'
       ]
     }
   },

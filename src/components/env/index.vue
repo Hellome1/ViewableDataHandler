@@ -1,8 +1,8 @@
 <template>
   <div class="env">
-    <div class="rect">
+    <div class="rect" :style="drawerVisible ? { right: size } : {}">
       <div class="env-item" v-for="(itm, key) in obj" :key="key">
-        <span style="font-weight: bold">{{dict[key]}}：</span><span>{{itm}}</span>
+        <span style="font-weight: bold">{{ENV_dict[key]}}：</span><span>{{itm}}</span>
       </div>
     </div>
   </div>
@@ -10,22 +10,14 @@
 
 <script>
 import bus from '@/bus.js';
-const dict = {
-  hosPatRegNo: '登记号',
-  encId: '就诊号',
-  pacsExamDept: '检查科室'
-};
+import { inject } from '@/inject.js';
 export default {
   name: "env",
   data() {
-    return {
-      dict: dict,
-      obj: {
-        hosPatRegNo: '0000813452',
-        encId: '0003325',
-        pacsExamDept: '超声科'
-      }
-    }
+    return {}
+  },
+  computed: {
+    ...inject('dict', 'ENV', 'drawer')
   },
   mounted() {
     bus.$on('ENV', cb => cb.call(this));

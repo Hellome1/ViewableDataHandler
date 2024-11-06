@@ -1,12 +1,16 @@
 <template>
-  <div class="intro">
+  <div class="intro" :style="drawerVisible ? { right: size } : {}" >
     <h5>介绍、使用说明</h5>
   </div>
 </template>
 
 <script>
+import { inject } from '@/inject.js';
 export default {
-  name: 'intro'
+  name: 'intro',
+  computed: {
+    ...inject('drawer')
+  }
 }
 </script>
 

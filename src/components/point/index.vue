@@ -23,17 +23,17 @@ export default {
   },
   data() {
     return {
-      dialogVisible: boo
+      
     }
   },
   created() {
-    if (this.name === '用药医嘱') this.seeThisPoint();
+    // if (this.name === '用药医嘱') this.seeThisPoint();
   },
   methods: {
     seeThisPoint() {
-      global_state.poster.dialogVisible = true;
-      global_state.poster.code = this.code;
-      global_state.poster.title = this.name + '请求器';
+      global_state.drawer.drawerVisible = true;
+      global_state.drawer.code = this.code;
+      global_state.drawer.title = this.name + '的请求列表';
     }
   }
 }

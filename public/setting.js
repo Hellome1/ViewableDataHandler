@@ -1,11 +1,29 @@
 var global_state = {
-  logic: {
-
+  dict: {
+    ENV_dict: {
+      hosPatRegNo: '登记号',
+      encId: '就诊号',
+      pacsExamDept: '检查科室'
+    }
   },
+  ENV: {
+    obj: {
+      hosPatRegNo: '0000813452',
+      encId: '0003325',
+      pacsExamDept: '超声科'
+    }
+  },
+  logic: {},
   poster: {
     dialogVisible: false,
     code: '',
     title: '请求器'
+  },
+  drawer: {
+    drawerVisible: false,
+    size: '20%',
+    code: '',
+    title: '请求列表'
   }
 }
 
