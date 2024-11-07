@@ -10,6 +10,8 @@
       <h3>{{ title }}</h3>
     </template>
     <div style="padding: 0 20px;">
+      <el-page-header @back="goBack" content="请求列表">
+      </el-page-header>
       <List />
     </div>
   </el-drawer>
@@ -32,6 +34,11 @@ export default {
     ...inject('drawer'),
     drawer() {
       return this.$store.state.drawer;
+    }
+  },
+  methods: {
+    goBack() {
+      console.log('go back.')
     }
   }
 };

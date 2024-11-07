@@ -24,6 +24,9 @@ var global_state = {
     size: '20%',
     code: '',
     title: '请求列表'
+  },
+  list: {
+    list: []
   }
 }
 
@@ -66,12 +69,23 @@ var dict1 = {
         name: '用药医嘱条件与处理方式一',
         code: 'MedicalOrderHandlerOne',
         condition: [
-          {
-            "left": "hosPatRegNo",
-            "mid": "equal",
-            "right": "0000813452"
-          }
+          'ruleOne'
         ],
+        tpost: {
+          post: {
+            url: "http://127.0.0.1:3000/MES0005",
+            method: "post",
+          },
+          postHeader: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          postParam: [
+            { 
+              key: 'params', 
+              value: '{"data":{"businessFieldCode":"00001","hdcPatientId":"00001_608","hdcEncId":"","hosPatRegNo":"07208561","hosEncId":""}}'
+            }
+          ]
+        },
         excute: {
           "root.data.0.ordSubCatDesc": [
             "copy"

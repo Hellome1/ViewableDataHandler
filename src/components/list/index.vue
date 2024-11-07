@@ -2,24 +2,24 @@
 <!-- 完整的规则，包含条件和数据请求、处理 -->
   <div class="list">
     <ul>
-      <li class="list-item" v-for="(t, i) in list" :key="i" @click="setListShowIndex(2)">
+      <li class="list-item" v-for="(t, i) in list" :key="i">
         <span class="list-item-index">{{i + 1}}.</span>
-        <span class="list-item-desc">{{t}}</span>
+        <span class="list-item-desc">{{t.name}}</span>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { inject } from '@/inject.js';
 export default {
   name: 'list',
   data() {
     return {
-      list: [
-        'MES0001',
-        'MES0002'
-      ]
     }
+  },
+  computed: {
+    ...inject('list')
   },
   methods: {
     

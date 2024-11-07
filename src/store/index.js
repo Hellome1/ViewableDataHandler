@@ -8,6 +8,7 @@ import ENV from './env/index.js';
 import logic from './logic/index.js';
 import poster from './poster/index.js';
 import drawer from './drawer/index.js';
+import list from './list/index.js';
 
 export default new Vuex.Store({
   state: {
@@ -23,6 +24,7 @@ export default new Vuex.Store({
     ENV,
     logic,
     poster,
-    drawer
+    drawer,
+    list
   }
 })

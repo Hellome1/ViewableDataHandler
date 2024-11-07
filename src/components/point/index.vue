@@ -33,7 +33,10 @@ export default {
     seeThisPoint() {
       global_state.drawer.drawerVisible = true;
       global_state.drawer.code = this.code;
-      global_state.drawer.title = this.name + '的请求列表';
+      global_state.drawer.title = this.name;
+
+      let reqs = dict1[this.code].handler || [];
+      global_state.list.list = reqs;
     }
   }
 }
