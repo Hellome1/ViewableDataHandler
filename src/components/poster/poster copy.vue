@@ -1,8 +1,8 @@
 <template>
   <div class="poster">
     <div>
-      <div>
-        <div>
+      <div class="layoutFlex">
+        <div class="layoutFlex-left pd5">
           <el-row>
             <el-col :span="24">
               <label>请求地址：</label>
@@ -55,7 +55,7 @@
             </el-col>
           </el-row>
         </div>
-        <div>
+        <div class="layoutFlex-right pd5">
           <div style="height: 20px;">
             <h4>
               数据预览
@@ -76,13 +76,12 @@
 
       <div style="margin-top: 8px;">
         <el-row>
+          <el-col :span="8" style="height: 1px;"></el-col>
           <el-col :span="8" style="text-align: center;">
             <el-button type="primary" size="mini" @click="send">发送</el-button>
-          </el-col>
-          <el-col :span="8" style="text-align: center;">
             <el-button type="primary" size="mini" :disabled="!data" @click="handleData">处理数据</el-button>
           </el-col>
-          <el-col :span="8" style="text-align: center;">
+          <el-col :span="8">
             <el-button type="primary" size="mini" :disabled="!data">确认使用</el-button>
           </el-col>
         </el-row>
@@ -92,7 +91,6 @@
 </template>
 
 <script>
-import bus from '@/bus.js';
 import request from '@/api/request';
 import JsonViewerOri from '@/components/jsonViewer/indexori.vue';
 const getQSParam = (arr) => {
@@ -112,17 +110,14 @@ export default {
       }
     }
   },
-  created() {
-    bus.$on('poster', (postDetail) => this.setPost(postDetail));
-  },
   data() {
     return {
       post: {
-        url: "http://127.0.0.1:3000/test",
+        url: "http://127.0.0.1:3000/MES0005",
         method: "post",
       },
       postHeader: {
-        'Content-Type': ''
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       postParam: [
         { 
@@ -172,12 +167,6 @@ export default {
     },
     handleData() {
       
-    },
-    setPost(postDetail) {
-      let { post, postHeader, postParam } = postDetail;
-      this.post = post;
-      this.postHeader = postHeader;
-      this.postParam = postParam;
     }
   }
 };

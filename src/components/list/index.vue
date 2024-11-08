@@ -2,7 +2,7 @@
 <!-- 完整的规则，包含条件和数据请求、处理 -->
   <div class="list">
     <ul>
-      <li class="list-item" v-for="(t, i) in list" :key="i">
+      <li class="list-item" v-for="(t, i) in list" :key="i" @click="checkThis(t)" >
         <span class="list-item-index">{{i + 1}}.</span>
         <span class="list-item-desc">{{t.name}}</span>
       </li>
@@ -11,9 +11,15 @@
 </template>
 
 <script>
+import bus from '@/bus.js';
 import { inject } from '@/inject.js';
 export default {
   name: 'list',
+  props: {
+    next: {
+      type: Function
+    }
+  },
   data() {
     return {
     }
@@ -22,14 +28,19 @@ export default {
     ...inject('list')
   },
   methods: {
-    
+    checkThis(info) {
+      this.next();
+      console.log('info', info);
+      let { tpost } = info;
+      bus.$emit('poster', tpost);
+      global_state.poster.code = global_state.drawer.code;
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .list {
-  width: 300px;
   height: 500px;
   padding: 10px 15px;
   border: 1px solid black;

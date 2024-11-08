@@ -21,7 +21,7 @@ var global_state = {
   },
   drawer: {
     drawerVisible: false,
-    size: '20%',
+    size: '25%',
     code: '',
     title: '请求列表'
   },

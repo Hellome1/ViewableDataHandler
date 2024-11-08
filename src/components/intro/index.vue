@@ -27,5 +27,6 @@ export default {
   background-color: rgba(244, 244, 230, 0.8);
   padding: 10px;
   text-align: center;
+  transition: 0.3s;
 }
 </style>
